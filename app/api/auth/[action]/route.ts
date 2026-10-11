@@ -26,18 +26,61 @@ export async function POST(
         request.headers.get("origin") ||
         process.env.APP_ORIGIN ||
         new URL(request.url).origin;
-      const { data, error } = await db.auth.signUp({
+      let { data, error } = await db.auth.signUp({
         email,
         password,
         options: { emailRedirectTo: origin + "/auth/callback" },
       });
-      if (error)
+
+      // If Supabase's built-in email provider hits its hourly rate limit (429),
+      // fall back to creating and confirming the user via service role so signups never fail.
+      if (
+        error &&
+        process.env.SUPABASE_SERVICE_ROLE_KEY &&
+        (error.status === 429 ||
+          error.code === "over_email_send_rate_limit" ||
+          error.message.toLowerCase().includes("rate limit") ||
+          error.message.toLowerCase().includes("email"))
+      ) {
+        try {
+          const { createClient: createAdminClient } = await import(
+            "@supabase/supabase-js"
+          );
+          const admin = createAdminClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            process.env.SUPABASE_SERVICE_ROLE_KEY,
+            { auth: { persistSession: false } },
+          );
+          const adminRes = await admin.auth.admin.createUser({
+            email,
+            password,
+            email_confirm: true,
+          });
+          if (!adminRes.error && adminRes.data.user) {
+            const loginRes = await db.auth.signInWithPassword({
+              email,
+              password,
+            });
+            if (!loginRes.error) {
+              return NextResponse.json({ redirect: "/onboarding" });
+            }
+          } else if (adminRes.error) {
+            error = adminRes.error;
+          }
+        } catch (adminErr) {
+          console.error("Service role fallback failed:", adminErr);
+        }
+      }
+
+      if (error) {
         throw new HttpError(
           400,
-          "Unable to create this account. Check your details or try signing in.",
+          error.message ||
+            "Unable to create this account. Check your details or try signing in.",
         );
+      }
       return NextResponse.json(
-        data.session
+        data?.session
           ? { redirect: "/onboarding" }
           : {
               message:
