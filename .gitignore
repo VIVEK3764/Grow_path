@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.tar.gz
+*.log
+.next/
+.env*
+!.env.example
+*.tsbuildinfo
+coverage/

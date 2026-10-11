@@ -1,0 +1,337 @@
+/* Reuse the refined prototype surfaces for database-backed routes. */
+.sidebar nav a {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.sidebar nav a.active {
+  color: var(--green);
+  background: #f1f8f3;
+}
+.desktop-products a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.top-profile {
+  margin-left: auto;
+  display: flex;
+  padding: 10px;
+  color: #63796a;
+}
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 54px;
+  min-height: 48px;
+  font-size: 10px;
+  color: #6f7b73;
+}
+.bottom-nav a.active {
+  color: var(--green);
+  font-weight: 550;
+}
+.narrow,
+.auth-form,
+.setup-page,
+.welcome {
+  max-width: 570px;
+  margin: auto;
+}
+.welcome h1 {
+  font-size: 40px;
+  margin: 20px 0;
+}
+.welcome > p {
+  margin: 20px 0 30px;
+}
+.welcome .intro-card {
+  margin-top: 30px;
+}
+.auth-form > p {
+  margin: 12px 0 27px;
+}
+.auth-form label {
+  margin: 20px 0;
+}
+.auth-switch {
+  text-align: center;
+  font-size: 13px;
+}
+.auth-switch a {
+  color: var(--green);
+}
+.full {
+  width: 100%;
+  margin-top: 23px;
+}
+.form-spacing {
+  margin-top: 22px;
+}
+.error-message {
+  color: #a23832 !important;
+  background: #fff5f3;
+  padding: 13px 15px;
+  border-radius: 6px;
+  font-size: 13px !important;
+  line-height: 1.6;
+  margin: 17px 0 !important;
+  overflow-wrap: anywhere;
+}
+.success-message {
+  font-size: 12px !important;
+  color: #237b58 !important;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+.planning-note {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 25px;
+}
+.estimate {
+  font-size: 12px;
+  margin-top: 14px;
+}
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.status-label {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.goal-controls {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.danger {
+  color: #a34539;
+}
+.ledger-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+  font-size: 13px;
+}
+.ledger-row small {
+  display: block;
+  font-size: 11px;
+  margin-top: 6px;
+}
+.ledger-row strong {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.history-row {
+  display: block;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+}
+.history-row p {
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+}
+.decode-result ul {
+  padding-left: 18px;
+  margin: 0;
+  color: #506455;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.decode-result li + li {
+  margin-top: 8px;
+}
+.decode-result blockquote,
+.decode-result p,
+.decode-result li {
+  overflow-wrap: anywhere;
+}
+.severity {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 45px;
+  font-weight: 550;
+}
+.severity.high {
+  color: #a44d3c;
+}
+.severity.medium {
+  color: #917132;
+}
+.severity.low {
+  color: #63756a;
+}
+.neutral-result {
+  border-color: #67947b;
+  background: #f3f8f4;
+  color: #345d43;
+}
+.lesson h1 {
+  margin: 20px 0 30px;
+}
+.lesson p + p {
+  margin-top: 20px;
+}
+.real-dialog {
+  position: fixed;
+  margin: auto;
+  border: 0;
+  width: calc(100% - 40px);
+  max-width: 470px;
+  max-height: 90dvh;
+  padding: 32px;
+  overflow: auto;
+}
+.real-dialog::backdrop {
+  background: #172d234f;
+}
+.real-dialog label {
+  margin-top: 18px;
+}
+.real-dialog h2 {
+  padding-right: 25px;
+}
+.setup-page p {
+  margin: 20px 0;
+}
+.setup-page ol {
+  padding-left: 21px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.setup-page li {
+  margin: 12px 0;
+}
+.setup-page code {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.setup-page small {
+  display: block;
+  margin-top: 18px;
+}
+.empty-state {
+  padding-top: 30px;
+}
+.empty-state p {
+  margin: 22px 0 30px;
+}
+.loading-state {
+  max-width: 570px;
+  margin: auto;
+}
+.skeleton {
+  height: 200px;
+  border-radius: 9px;
+  background: #f0f5f1;
+  margin-bottom: 25px;
+}
+.skeleton.short {
+  height: 80px;
+}
+.onboarding form > p {
+  margin-top: 10px;
+}
+.onboarding form .primary {
+  margin-top: 24px;
+}
+.onboarding form small {
+  display: block;
+}
+.profile-form {
+  margin-top: 25px;
+}
+.onboarding .two-cols label small {
+  font-size: 10px;
+}
+.two-cols input[type="date"] {
+  max-width: 100%;
+}
+.sheet form .primary {
+  margin-bottom: 8px;
+}
+.page-path .goal-foot {
+  align-items: center;
+}
+.page-path .goal-foot button {
+  font-size: 12px;
+}
+@media (max-width: 600px) {
+  .main {
+    padding: 26px 20px 100px;
+  }
+  .narrow h1,
+  .auth-form h1,
+  .setup-page h1 {
+    font-size: 27px;
+  }
+  .welcome h1 {
+    font-size: 35px;
+  }
+  .goals-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-heading {
+    flex-wrap: wrap;
+  }
+  .page-heading > .primary {
+    width: 100%;
+  }
+  .real-dialog {
+    margin: auto 0 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding: 30px 24px;
+    max-height: 90dvh;
+  }
+  .onboarding .stage-list {
+    gap: 8px;
+    margin: 20px 0;
+  }
+  .onboarding .stage-choice {
+    min-height: 73px;
+  }
+  .goal-controls {
+    gap: 15px;
+  }
+  .decode-result ul {
+    font-size: 13px;
+  }
+  .setup-page {
+    padding-top: 5px;
+  }
+  .goal-amount {
+    font-size: 32px;
+  }
+  .goal-amount span {
+    font-size: 13px;
+  }
+  .onboarding {
+    padding-top: 20px;
+  }
+  .onboarding form small {
+    font-size: 11px;
+  }
+}
